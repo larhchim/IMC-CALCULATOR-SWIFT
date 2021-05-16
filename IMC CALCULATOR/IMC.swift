@@ -54,8 +54,9 @@ class IMC {
         }
         
          switch evaluation {
-              
-               case  18,5..<25:
+               case 0..<18.5:
+               return ("Poids faible: votre IMC =\(String(format: "%.2f",evaluation))",.black)
+               case  18.5..<25:
                 return ("Poids normale: votre IMC =\(String(format: "%.2f",evaluation))",.green)
                case 25..<30:
                 return ("Surpoids: votre IMC =\(String(format: "%.2f",evaluation))",.yellow)
@@ -63,10 +64,8 @@ class IMC {
                 return("Obésité modérée: votre IMC =\(String(format: "%.2f",evaluation))",.cyan)
                case 35..<40:
                 return("Obésité sévère: votre IMC =\(String(format: "%.2f",evaluation))",.red)
-               case 40..<200:
+                default :
                 return ("Obésité massive: votre IMC =\(String(format: "%.2f",evaluation))",.brown)
-               default:
-                   return("Données incorrectes",UIColor.black)
                }
         
     }

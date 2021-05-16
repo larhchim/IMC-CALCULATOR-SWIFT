@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         
         TailleLabel.text = String(format: "%.2f",sender.value) + " m"
         
-        TailleSlider.value = Float(String(format: "%.2f",sender.value))!
+        TailleSlider.value = sender.value
       
 
         
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         
         poidLabel.text = String(format: "%.2f",sender.value) + " kg"
         
-        PoidSlider.value = Float(String(format: "%.2f",sender.value))!
+        PoidSlider.value = sender.value
         
     }
     
@@ -57,7 +57,12 @@ class ViewController: UIViewController {
         //screen.backgroundColor = UIColor.red
         //print("taille est", TailleSlider.value)
         //print("poid est", PoidSlider.value)
-        let calculatrice = IMC(taille: TailleSlider.value, poid: TailleSlider.value)
+        let calculatrice = IMC(taille: TailleSlider.value, poid: PoidSlider.value)
+        
+        print("taille slider:",TailleSlider.value)
+        print("poid slider:",PoidSlider.value)
+        print(calculatrice.calculer().0)
+print("****************")
         
         screen.backgroundColor = calculatrice.calculer().1
         
@@ -71,6 +76,7 @@ class ViewController: UIViewController {
         
         screen.backgroundColor = UIColor.white
         resultat.text = "Resultat"
+        
     }
     
 }
